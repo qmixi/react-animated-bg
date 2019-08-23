@@ -1,0 +1,57 @@
+{
+  "name": "react-animated-bg",
+  "version": "1.0.0",
+  "description": "Strongly customizable React component helping you make animated background.",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "NODE_ENV=production webpack --watch --mode development",
+    "lint": "eslint src/*",
+    "test": "jest",
+    "build": "webpack --mode production"
+  },
+  "author": "qmixi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qmixi/react-animated-bg.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^8.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "styled-components": "^4.3.2",
+    "use-interval": "^1.1.0"
+  },
+  "keywords": [
+    "react",
+    "animated",
+    "animate",
+    "animation",
+    "background",
+    "background-color",
+    "bg",
+    "react-animated-bg",
+    "random",
+    "duration",
+    "color",
+    "transition"
+  ],
+  "bugs": {
+    "url": "https://github.com/qmixi/react-animated-bg/issues"
+  },
+  "homepage": "https://github.com/qmixi/react-animated-bg#readme"
+}
