@@ -14,7 +14,7 @@
     Strongly customizable React component helping you make animated background
     <br />
     <br />
-    <a href="https://qmixi.github.io/react-animated-bg/demo/">View Demo</a>
+    <a href="https://codesandbox.io/s/eloquent-cherry-udky9">View Demo</a>
     ·
     <a href="https://github.com/qmixi/react-animated-bg/issues">Report Bug</a>
     ·
@@ -28,6 +28,8 @@
 ## Getting Started
 
 This component has been built with `styled-components` and `React hooks` to help you create customizable animated background. You can provide a list of colors, decide how long each color should be visible, set animation timing and its type. Thanks to simple and intuitive API you can create really amazing effects.
+
+> React@16.9.0 or newest is requered.
 
 ### Installation
 
@@ -102,6 +104,7 @@ const Wrapper = () => (
     <h2>ClassName and other props</h2>
   </AnimatedBg>
 );
+```
 
 ### Pass className and section default props
 
@@ -170,6 +173,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 #### Author: [@qmixi](https://github.com/qmixi)
 
 #### Project Link: [https://github.com/qmixi/react-animated-bg](https://github.com/qmixi/react-animated-bg)
+
+#### Demo: [https://codesandbox.io/s/eloquent-cherry-udky9](https://codesandbox.io/s/eloquent-cherry-udky9)
 
 [forks-shield]: https://img.shields.io/github/forks/qmixi/react-animated-bg.svg?style=flat-square
 [forks-url]: https://github.com/qmixi/react-animated-bg/network/members
