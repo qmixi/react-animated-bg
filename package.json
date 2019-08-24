@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^8.2.6",
@@ -33,14 +34,13 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "styled-components": "^4.3.2",
-    "use-interval": "^1.1.0"
+    "styled-components": "^4.3.2"
   },
   "keywords": [
     "react",
     "animated",
     "animate",
-    "animation",    
+    "animation",
     "background",
     "background-color",
     "images",
