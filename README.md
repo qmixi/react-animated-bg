@@ -66,6 +66,7 @@ const Wrapper = () => (
 ```
 
 ### Set animation duration time and delay before the next animation starts
+
 You can decide how long the duration of the animation will last. Furthermore, if you want the background to stay for some time before the next transition starts, you can set `delay` prop according to your needs. `duration` and `delay` take numeric value representing **seconds**.
 
 ```jsx
@@ -81,14 +82,19 @@ const Wrapper = () => (
     className="section-styles"
   >
     <h2>Duration and Delay</h2>
-    <p>Each color will be visible for 4 seconds and will change to another in 500ms</p>
+    <p>
+      Each color will be visible for 4 seconds and will change to another in
+      500ms
+    </p>
   </AnimatedBg>
 );
 ```
 
 ### How the animation will behave?
 
-`<AnimatedBg />` renders a `div`, and it will accept any usual `div` props, including `className`.
+Decide how the animation should behave. To make it happen all you have to do is set `timingFunction` property. By default, it's `linear`. but you can pass here any option from the list below.
+
+> `ease`, `linear`, `ease-in`, `ease-out`, `ease-in-out`, `step-start`, `step-end`
 
 ```jsx
 import React from "react";
@@ -106,28 +112,44 @@ const Wrapper = () => (
 );
 ```
 
-### Pass className and section default props
+### Hoorah!! You can animate images too!
 
-`<AnimatedBg />` renders a `div`, and it will accept any usual `div` props, including `className`.
+Because under the hood CSS `background` property is updating, the colors prop array can contain everything which is supported by it eg. `url('image.jpg)`. However eg. `linear-gradient` can't be animated this way. The example you can find in the [demo](https://codesandbox.io/s/eloquent-cherry-udky9)
+> **Important:** Remember to wrap the images with the **url( )** formula.
 
 ```jsx
 import React from "react";
 import AnimatedBg from "react-animated-bg";
 
-const Wrapper = () => (
-  <AnimatedBg
-    colors={["red", "salmon", "gold"]}
-    duration={2}
-    timingFunction="ease-out"
-    className="section-styles"
-  >
-    <h2>ClassName and other props</h2>
-  </AnimatedBg>
-);
-```
+const Wrapper = () => {
+  const imagesList = [
+    'url("https://images.dog.ceo/breeds/labrador/n02099712_3503.jpg")',
+    'url("https://images.dog.ceo/breeds/labrador/n02099712_5844.jpg")',
+    'url("https://images.dog.ceo/breeds/labrador/n02099712_5343.jpg")',
+    'url("https://images.dog.ceo/breeds/labrador/n02099712_7481.jpg")',
+    'url("https://images.dog.ceo/breeds/labrador/n02099712_7414.jpg")'
+  ];
 
+  return (
+    <AnimatedBg
+      colors={imagesList}
+      duration={2}
+      delay={1}
+      timingFunction="ease-out"
+    >
+      <div className="App">
+        <h1>Animated images</h1>
+        <h3>- duration: 2s</h3>
+        <h3>- delay: 1s</h3>
+        <h3>- transition type: ease-out</h3>
+      </div>
+    </AnimatedBg>
+  );
+};
+```
 
 ### Choose the next background randomly
+
 By default the background is changed according to the order given in the `colors` array. If you want you can change it to the random ordering by adding `randomMode` prop.
 
 ```jsx
@@ -148,17 +170,16 @@ const Wrapper = () => (
 );
 ```
 
-
 ## This component takes following props
 
-| Prop name      | Type                                                                                      | Required | Description                                                                                                 |
-| -------------- | ----------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| className      | string                                                                                    | false    | The class name provided to the component. It takes CSS modules as well.                                     |
-| colors         | array of colors                                                                           | true     | Colors can be passed in a `hex`, `rgba` or any other system which is accepted by `background` CSS property. |
-| delay       | number (seconds)                                                                          | false    | **By default `0`.** It tells how long the current background should be displayed before it changes to the next one.                      |
-| duration | number (seconds)                                                                          | false    | **By default `0.2`.** It says how long the animation between one background and the other should last.                                    |
-| timingFunction | string (`ease`, `linear`, `ease-in`, `ease-out`, `ease-in-out`, `step-start`, `step-end`) | false    | **By default `linear`.** Defines how the transition between one background and another should behave.                                |
-| randomMode | number (seconds)                                                                          | false    | **By default `false`.** If you set it to true next color will be choosen randomly.                                    |
+| Prop name      | Type                                                                                      | Required | Default value | Description                                                                                                         |
+| -------------- | ----------------------------------------------------------------------------------------- | -------- |  -------- |  ------------------------------------------------------------------------------------------------------------------- |
+| className      | string                                                                                    | false    | -    | The class name provided to the component. It takes CSS modules as well.                                             |
+| colors         | array of colors/images                                                                           | true     | -    | Colors can be passed in a `hex`, `rgba` or any other system which is accepted by `background` CSS property.         |
+| delay          | number (seconds)                                                                          | false    | **0**    |  It tells how long the current background should be displayed before it changes to the next one. |
+| duration       | number (seconds)                                                                          | false    |  **0.2**    | It says how long the animation between one background and the other should last.              |
+| timingFunction | string (`ease`, `linear`, `ease-in`, `ease-out`, `ease-in-out`, `step-start`, `step-end`) | false    | **linear**    | Defines how the transition between one background and another should behave.               |
+| randomMode     | boolean                                                                         | false    | **false**    |  If you set it to true next color will be choosen randomly.                                  |
 
 <!-- LICENSE -->
 
