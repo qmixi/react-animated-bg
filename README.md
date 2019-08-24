@@ -27,7 +27,7 @@
 
 ## Getting Started
 
-This component has been built with `styled-components` and `React hooks` to help you create customizable animated background. You can provide a list of colors, decide how long each color should be visible, set animation timing and its type. Thanks to simple and intuitive API you can create really amazing effects.
+This component has been built to help you create customizable animated background. You can provide a list of colors, decide how long each color should be visible, set animation timing and its type. Thanks to simple and intuitive API you can create really amazing effects.
 
 ### Installation
 
@@ -112,7 +112,7 @@ const Wrapper = () => (
 
 ### Hoorah!! You can animate images too!
 
-Because under the hood CSS `background` property is updating, the colors prop array can contain everything which is supported by it eg. `url('image.jpg)`. However eg. `linear-gradient` can't be animated this way. The example you can find in the [demo](https://codesandbox.io/s/eloquent-cherry-udky9)
+Because under the hood CSS `background` property is updating, the `colors` prop array can contain everything which is supported by CSS eg. `url('image.jpg)`. However eg. `linear-gradient` can't be animated this way. The example you can find in the [demo](https://codesandbox.io/s/eloquent-cherry-udky9)
 > **Important:** Remember to wrap the images with the **url( )** formula.
 
 ```jsx
