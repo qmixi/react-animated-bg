@@ -1,7 +1,7 @@
 /*
  * External imports
  */
-import React, { useState } from "react";
+import React, { Component } from "react";
 import {
   oneOfType,
   node,
@@ -12,7 +12,6 @@ import {
   bool
 } from "prop-types";
 import styled from "styled-components";
-import useInterval from "use-interval";
 
 import { getRandomFromRange, getPositionIndex } from "./utils";
 
@@ -21,43 +20,67 @@ import { getRandomFromRange, getPositionIndex } from "./utils";
  */
 const Container = styled.div`
   transition: all
-    ${({ duration, timingFunction }) =>
-      `${duration}s ${timingFunction}`};
+    ${({ duration, timingFunction }) => `${duration}s ${timingFunction}`};
 
   background: ${({ bg }) => bg};
 `;
 
-const AnimatedBg = ({
-  children,
-  className,
-  colors,
-  delay = 0,
-  duration = 0.2,
-  timingFunction = "linear",
-  randomMode = false,
-  ...otherProps
-}) => {
-  const initialIndex = randomMode ? getRandomFromRange(colors.length) : 0;
-  const [index, setIndex] = useState(initialIndex);
+class AnimatedBg extends Component {
+  constructor(props) {
+    super(props);
 
-  useInterval(() => {
-    const nextIndex = getPositionIndex(index, colors, randomMode);
-    setIndex(nextIndex);
-  }, (delay + duration) * 1000);
+    const { randomMode, colors } = props;
 
-  return (
-    <Container
-      bg={colors[index]}
-      delay={delay}
-      className={className}
-      duration={duration}
-      timingFunction={timingFunction}
-      {...otherProps}
-    >
-      {children}
-    </Container>
-  );
-};
+    this.state = {
+      index: randomMode ? getRandomFromRange(colors.length) : 0
+    };
+  }
+
+  componentDidMount() {
+    const { duration, delay } = this.props;
+    const ms = (delay + duration + 0.04) * 1000;
+    this.intervalId = setInterval(() => {
+      this.changeBackground();
+    }, ms);
+  }
+
+  changeBackground = () => {
+    const { colors, randomMode } = this.props;
+    this.setState(prevState => ({
+      index: getPositionIndex(prevState.index, colors, randomMode)
+    }));
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
+  render() {
+    const {
+      children,
+      className,
+      colors,
+      delay = 0,
+      duration = 0.2,
+      timingFunction = "linear",
+      ...otherProps
+    } = this.props;
+    const { index } = this.state;
+
+    return (
+      <Container
+        bg={colors[index]}
+        delay={delay}
+        className={className}
+        duration={duration}
+        timingFunction={timingFunction}
+        {...otherProps}
+      >
+        {children}
+      </Container>
+    );
+  }
+}
 
 /*
  * Component's prop-types definition

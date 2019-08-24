@@ -29,8 +29,6 @@
 
 This component has been built with `styled-components` and `React hooks` to help you create customizable animated background. You can provide a list of colors, decide how long each color should be visible, set animation timing and its type. Thanks to simple and intuitive API you can create really amazing effects.
 
-> React@16.9.0 or newest is requered.
-
 ### Installation
 
 With `npm`
