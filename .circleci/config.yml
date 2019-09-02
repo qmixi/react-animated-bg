@@ -23,32 +23,20 @@ jobs:
   test:
     executor: default
     steps:
-      - checkout
-      - restore_cache:
-          key: npm-cache-v1-{{ checksum "package-lock.json" }}
+      - checkout      
       - run:
           name: Install Dependencies
-          command: npm i
-      - save_cache:
-          key: npm-cache-v1-{{ checksum "package-lock.json" }}
-          paths:
-            - /home/circleci/.npm      
+          command: npm i      
       - run:
           name: Run Tests
           command: npm test
   deploy:
     executor: default
     steps:      
-      - checkout
-      - restore_cache:
-          key: npm-cache-v1-{{ checksum "package-lock.json" }}
+      - checkout      
       - run:
           name: Install Dependencies
-          command: npm i
-      - save_cache:
-          key: npm-cache-v1-{{ checksum "package-lock.json" }}
-          paths:
-            - /home/circleci/.npm      
+          command: npm i      
       - run:
           name: "Build project"
           command: npm run build
