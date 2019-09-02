@@ -1,13 +1,14 @@
-version: 2
+version: 2.1
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:8.9.1
+executors:
+  default:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:8.9.1
 
 jobs:
   build:
-    <<: *defaults
+    executor: default
     steps:
       - checkout
       - restore_cache:
@@ -20,7 +21,7 @@ jobs:
           paths:
             - /home/circleci/.npm      
   test:
-    <<: *defaults
+    executor: default
     steps:
       - checkout
       - restore_cache:
@@ -36,7 +37,7 @@ jobs:
           name: Run Tests
           command: npm test
   deploy:
-    <<: *defaults
+    executor: default
     steps:      
       - checkout
       - restore_cache:
