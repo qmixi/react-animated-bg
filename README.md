@@ -112,6 +112,8 @@ const Wrapper = () => (
 
 ### Hoorah!! You can animate images too!
 
+> ⚠️ Animating images doesn't work on **Firefox** since the browser doesn't support the transition for background-image. ⚠️
+
 Because under the hood CSS `background` property is updating, the `colors` prop array can contain everything which is supported by CSS eg. `url('image.jpg)`. However eg. `linear-gradient` can't be animated this way. The example you can find in the [demo](https://codesandbox.io/s/eloquent-cherry-udky9)
 > **Important:** Remember to wrap the images with the **url( )** formula.
 
