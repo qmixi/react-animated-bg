@@ -44,16 +44,16 @@ class AnimatedBg extends Component {
     }, ms);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
   changeBackground = () => {
     const { colors, randomMode } = this.props;
     this.setState(prevState => ({
       index: getPositionIndex(prevState.index, colors, randomMode)
     }));
   };
-
-  componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
 
   render() {
     const {
