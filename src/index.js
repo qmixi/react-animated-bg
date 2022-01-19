@@ -83,6 +83,18 @@ class AnimatedBg extends Component {
 }
 
 /*
+ * Component's default prop-types
+ */
+AnimatedBg.defaultProps = {
+  children: null,
+  className: "",
+  delay: 0,
+  duration: 0.2,
+  timingFunction: "linear",
+  randomMode: false,
+};
+
+/*
  * Component's prop-types definition
  */
 AnimatedBg.propTypes = {
@@ -98,9 +110,9 @@ AnimatedBg.propTypes = {
     "ease-out",
     "ease-in-out",
     "step-start",
-    "step-end"
+    "step-end",
   ]),
-  randomMode: bool
+  randomMode: bool,
 };
 
 /*
